@@ -1,5 +1,12 @@
 * {
+  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #E5E5E5;
 }
 
 header {
@@ -9,12 +16,16 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #C3CFD9;
-  font: 400 34px/40px;
-  color: #E8833A;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #C3CFD9;
+  z-index: 10;
+}
+header h1 {
+  margin: auto;
+  font: normal 400 34px/40px;
+  color: #E8833A;
 }
 
 .main-container {

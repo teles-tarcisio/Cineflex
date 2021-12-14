@@ -6,7 +6,7 @@ export default function App() {
 
   return (
     <>
-      <header>CINEFLEX</header>
+      <header><h1>CINEFLEX</h1></header>
 
       <div className="main-container">
         
