@@ -1,12 +1,12 @@
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
 }
 
 body {
   width: 100vw;
   height: 100vh;
   background-color: #E5E5E5;
+  font-family: 'Roboto', sans-serif;
 }
 
 header {
@@ -24,7 +24,9 @@ header {
 }
 header h1 {
   margin: auto;
-  font: normal 400 34px/40px;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 40px;
   color: #E8833A;
 }
 

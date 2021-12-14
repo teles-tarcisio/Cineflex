@@ -1,6 +1,7 @@
 import "./App.css";
 
-import MoviesList from "./MoviesList/MoviesList.js";
+import MoviesList from "../MoviesList/MoviesList.js";
+import Sessions from "../Sessions/Sessions.js";
 
 export default function App() {
 
@@ -14,7 +15,8 @@ export default function App() {
           <h1>Selecione_filme-horário-assentos/Pedido_Sucesso</h1>
         </div>
 
-        <MoviesList />
+        {/* <MoviesList /> */}
+        <Sessions />
 
 
       </div>
