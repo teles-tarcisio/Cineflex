@@ -2,6 +2,7 @@ import "./App.css";
 
 import MoviesList from "../MoviesList/MoviesList.js";
 import Sessions from "../Sessions/Sessions.js";
+import Seats from "../Seats/Seats.js";
 
 export default function App() {
 
@@ -16,7 +17,8 @@ export default function App() {
         </div>
 
         {/* <MoviesList /> */}
-        <Sessions />
+        {/* <Sessions /> */}
+        <Seats />
 
 
       </div>

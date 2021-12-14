@@ -1,0 +1,78 @@
+.seats-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.seat-card {
+  margin: 8px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 15px;
+  background: #C3CFD9;
+  border: 1px solid #808F9D;
+  border-radius: 17px;
+}
+.seat-card.selected {
+  background: #8DD7CF;
+  border: 1px solid #1AAE9E;
+}
+.seat-card.unavailable {
+  background: #FBE192;
+  border: 1px solid #F7C52B;
+}
+
+.seats-visualkey {
+  width: 327px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 16px;
+}
+
+.buyer-data {
+  width: 327px;
+  margin: 24px auto 120px auto;
+}
+
+form {
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  line-height: 21px;
+  color: #293845;
+  line-height: 21px;
+}
+.buyer-data input {
+  width: 100%;
+  height: 50px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid #D4D4D4;
+  border-radius: 3px;
+  color: #AFAFAF;
+}
+.reserve-seats {
+  width: 225px;
+  margin: 28px auto;
+  height: 42px;
+  background: #E8833A;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFFFFF;
+}
