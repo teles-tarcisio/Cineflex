@@ -1,6 +1,6 @@
-import MoviesList from "./MoviesList/MoviesList.js";
-
 import "./App.css";
+
+import MoviesList from "./MoviesList/MoviesList.js";
 
 export default function App() {
 
