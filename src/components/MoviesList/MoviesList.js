@@ -1,5 +1,7 @@
 import "./MoviesList.css";
 
+import { Link } from 'react-router-dom';
+
 const allMoviesList = [
 
   {
@@ -146,15 +148,16 @@ const allMoviesList = [
 
 export default function MoviesList() {
 
-
   return (
     <ul className="movies-list">
       {allMoviesList.map((movie, index) => (
-        <li className="movie-card" key={index} id={movie.id}>
-          <img className="poster" src={movie.posterURL} alt={movie.title} />
-        </li>)
+        <Link to={`/sessoes/${movie.id}`}>
+          <li className="movie-card" key={index} id={movie.id}>
+            <img className="poster" src={movie.posterURL} alt={movie.title} />
+          </li>
+        </Link>
+        )
       )}
     </ul>
-
   );
 }
