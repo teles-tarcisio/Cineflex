@@ -1,8 +1,10 @@
 import "./Sessions.css";
 import "../MoviesList/MoviesList.css";
 
+import { Link } from 'react-router-dom';
 
-const allMovieSessions = {
+
+const movieSessions = {
   "id": 19,
   "title": "Project Power",
   "posterURL": "https://image.tmdb.org/t/p/w500/TnOeov4w0sTtV2gqICqIxVi74V.jpg",
@@ -134,9 +136,9 @@ const allMovieSessions = {
 
 
 export default function Sessions() {
-  const {title, posterURL, days} = allMovieSessions;
+  const { title, posterURL, days } = movieSessions;
 
-  return(
+  return (
     <>
       <ul className="movie-days">
         {days.map((session, index) => (
@@ -144,21 +146,23 @@ export default function Sessions() {
             <p>{session.weekday} - {session.date}</p>
             <ul className="day-hours">
               {session.showtimes.map((time) => (
-                <li className="session-time" id={time.id} key={time.id}>
-                  <p>{time.name}</p>
-                </li>
+                <Link to={`/assentos/${time.id}`}>
+                  <li className="session-time" id={time.id} key={time.id}>
+                    <p>{time.name}</p>
+                  </li>
+                </Link>
               ))}
             </ul>
-          </li> ))
+          </li>))
         }
       </ul>
+
       <footer>
         <div className="footer-info">
           <img className="poster" src={posterURL} alt={title} />
         </div>
         <p>{title}</p>
       </footer>
-      
     </>
   );
 }
