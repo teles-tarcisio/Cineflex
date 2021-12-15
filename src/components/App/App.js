@@ -3,6 +3,7 @@ import "./App.css";
 import MoviesList from "../MoviesList/MoviesList.js";
 import Sessions from "../Sessions/Sessions.js";
 import Seats from "../Seats/Seats.js";
+import Success from "../Success/Success.js";
 
 export default function App() {
 
@@ -18,7 +19,8 @@ export default function App() {
 
         {/* <MoviesList /> */}
         {/* <Sessions /> */}
-        <Seats />
+        {/* <Seats /> */}
+        <Success />
 
 
       </div>
