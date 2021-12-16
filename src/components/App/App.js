@@ -12,7 +12,7 @@ function InfoBox() {
   return (
     <>
       <div className="information-box">
-        <h1>Selecione_filme-horário-assentos/Pedido_Sucesso</h1>
+        <h1>Selecione o filme</h1>
       </div>
       <MoviesList />
     </>
