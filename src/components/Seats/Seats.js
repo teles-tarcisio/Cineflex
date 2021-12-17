@@ -1,4 +1,8 @@
+import { Link } from "react-router-dom";
+
 import "./Seats.css";
+
+
 
 import Seat from "./Seat.js";
 
@@ -296,9 +300,9 @@ export default function Seats() {
         <label for="buyer-cpf">CPF do comprador:</label>
         <input type="text" id="buyer-cpf" name="buyer-cpf" placeholder="Digite seu CPF..." />
 
-        <div className="reserve-seats">
+        <Link to="/sucesso" className="reserve-seats">
           <p>Reservar assento(s)</p>
-        </div>
+        </Link>
       </form>
 
       <footer>

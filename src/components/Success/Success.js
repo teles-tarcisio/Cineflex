@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "../MoviesList/MoviesList.css";
 import "./Success.css";
 
@@ -35,9 +37,9 @@ export default function Success() {
         </div>
       </div>
 
-      <div className="back-to-home">
+      <Link to="/" className="back-to-home">
         <p>Voltar pra Home</p>
-      </div>
+      </Link>
 
     </>
   );

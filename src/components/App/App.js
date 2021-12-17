@@ -8,13 +8,16 @@ import Seats from "../Seats/Seats.js";
 import Success from "../Success/Success.js";
 
 
-function InfoBox() {
+function InfoBox({children, type}) {
   return (
     <>
       <div className="information-box">
-        <h1>Selecione o filme</h1>
+        {type === 'movie' ? <h1>Selecione o filme</h1> : ''}
+        {type === 'session' ? <h1>Selecione o horário</h1> : ''}
+        {type === 'seats' ? <h1>Selecione o(s) assento(s)</h1> : ''}
+        {type === 'reservation' ? <h1>Pedido feito com sucesso!</h1> : ''}
       </div>
-      <MoviesList />
+      {children}      
     </>
   );
 }
@@ -27,13 +30,30 @@ export default function App() {
 
       <div className="main-container">
         <Routes>
-          <Route path="/" element={<InfoBox />}></Route>
+          <Route path="/" element={
+            <InfoBox type={'movie'}>
+              <MoviesList />
+            </InfoBox>}
+          />
           
-          <Route path="/sessoes/:movieID" element={<Sessions />}></Route>
+          <Route path="/sessoes/:movieID" element={
+            <InfoBox type={'session'}>
+              <Sessions />
+            </InfoBox>}           
+          />
+  
 
-          <Route path="/assentos/:sessionID" element={<Seats />}></Route>
-
-          <Route path="/sucesso" element={<Success />}></Route>
+          <Route path="/assentos/:sessionID" element={
+            <InfoBox type={'seats'}>
+              <Seats />
+            </InfoBox>}
+          />
+  
+          <Route path="/sucesso" element={
+            <InfoBox type={'reservation'}>
+              <Success />
+            </InfoBox>}
+          />         
 
         </Routes>
       </div>
