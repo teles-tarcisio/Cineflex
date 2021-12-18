@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import "../MoviesList/MoviesList.css";
+import "../MoviesList/MoviesList_styles.js";
 import "./Success.css";
 
 

@@ -1,30 +1,34 @@
-.movie-days {
+import styled from 'styled-components';
+
+const scMovieDays = styled.ul`
   margin: 0 auto 120px 23px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   padding: 1px;
-}
+`;
 
-.day-date {
+const scDayDate = styled.li`
   margin-bottom: 7px;
   width: 100%;
-  height: 100px;
+  height: 100px;1
   display: flex;
   flex-direction: column;
   font-size: 20px;
   line-height: 23px;
   color: #293845;
-}
-.day-hours {
+`;
+
+const scDayHours = styled.ul`
   margin-top: 14px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-}
-.session-time {
+`;
+
+const scSessionTime = styled.li`
   margin: 4px;
   width: 83px;
   height: 43px;
@@ -37,7 +41,9 @@
   font-size: 18px;
   line-height: 21px;
   color: #FFFFFF;
-}
-.session-time p {
-  text-decoration: none;
-}
+  & p {
+    text-decoration: none;
+  }
+`;
+
+export { scMovieDays, scDayDate, scDayHours, scSessionTime };
