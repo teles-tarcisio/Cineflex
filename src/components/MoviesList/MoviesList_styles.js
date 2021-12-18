@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const scMoviesList = styled.ul`
+const SCMoviesList = styled.ul`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -8,7 +8,7 @@ const scMoviesList = styled.ul`
   justify-content: space-evenly;
 `;
 
-const scMovieCard = styled.li`
+const SCMovieCard = styled.li`
   width: 145px;
   height: 209px;
   margin: 5px;
@@ -21,7 +21,7 @@ const scMovieCard = styled.li`
   }
 `;
 
-const scFooter = styled.footer`
+const SCFooter = styled.footer`
   margin: auto;
   background-color: #DFE6ED;
   width: 100%;
@@ -38,7 +38,7 @@ const scFooter = styled.footer`
   }
 `;
 
-const scFooterInfo = styled.div`
+const SCFooterInfo = styled.div`
   width: 64px;
   height: 89px;
   padding: 8px;
@@ -54,4 +54,4 @@ const scFooterInfo = styled.div`
   }
 `;
 
-export { scMoviesList, scMovieCard, scFooter, scFooterInfo };
+export { SCMoviesList, SCMovieCard, SCFooter, SCFooterInfo };

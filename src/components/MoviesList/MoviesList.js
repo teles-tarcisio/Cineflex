@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-import { scMoviesList, scMovieCard, scFooter, scFooterInfo } from './MoviesList_styles.js';
+import { SCMoviesList, SCMovieCard } from './MoviesList_styles';
 
 const MOVIESLIST_URL = "https://mock-api.driven.com.br/api/v4/cineflex/movies";
 
@@ -20,14 +20,14 @@ export default function MoviesList() {
   useEffect(getAllMovies, []);
   
   return (
-    <scMoviesList>
+    <SCMoviesList>
       {allMoviesList.map((movie, index) => (
         <Link to={`/sessoes/${movie.id}`}>
-          <scMovieCard key={index} id={movie.id}>
+          <SCMovieCard key={index} id={movie.id}>
             <img className="poster" src={movie.posterURL} alt={movie.title} />
-          </scMovieCard>
+          </SCMovieCard>
         </Link>
       ))}
-    </scMoviesList>
+    </SCMoviesList>
   );
 }
