@@ -1,9 +1,12 @@
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+
 import "./Sessions.css";
 import "../MoviesList/MoviesList.css";
 
-import { Link } from 'react-router-dom';
-
-
+/*
 const movieSessions = {
   "id": 19,
   "title": "Project Power",
@@ -133,9 +136,22 @@ const movieSessions = {
     }
   ]
 };
-
+*/
+const MOVIESESSIONS_URL = "https://mock-api.driven.com.br/api/v4/cineflex/movies/";
 
 export default function Sessions() {
+  const [movieSessions, setMovieSessions] = useState({days:[]});
+  const params = useParams();
+
+  const getMovieSessions = (
+    () => {
+      const promise = axios.get(MOVIESESSIONS_URL + `${params.movieID}/showtimes`);
+      promise.then( response => {
+        setMovieSessions(response.data);} )
+    }
+  );
+
+  useEffect(getMovieSessions, []);
   const { title, posterURL, days } = movieSessions;
 
   return (

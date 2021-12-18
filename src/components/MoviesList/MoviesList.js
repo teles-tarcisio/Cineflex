@@ -1,8 +1,8 @@
-import "./MoviesList.css";
-
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+
+import "./MoviesList.css";
 
 const MOVIESLIST_URL = "https://mock-api.driven.com.br/api/v4/cineflex/movies";
 
