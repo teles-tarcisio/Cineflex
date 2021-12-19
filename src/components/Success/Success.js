@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import "../MoviesList/MoviesList_styles.js";
-import "./Success_styles.js";
+import { SCOrderSummary, SCBackToHome } from "./Success_styles.js";
 
 
 export default function Success() {

@@ -33,3 +33,5 @@ const SCBackToHome = styled.a`
   text-decoration: none;
   color: #FFFFFF;
 `;
+
+export { SCOrderSummary, SCBackToHome };
