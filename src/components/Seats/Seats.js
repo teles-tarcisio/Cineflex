@@ -13,25 +13,37 @@ const SESSIONSEATS_URL = "https://mock-api.driven.com.br/api/v4/cineflex/showtim
 
 export default function Seats() {
   const [sessionData, setSessionData] = useState({movie:{}, day:{}, seats:[]});
+  const [localSeats, setLocalSeats] = useState([]);
+  
   const { movie, name, day, seats } = sessionData;
+  
   const params = useParams();
 
   const getSessionData = (
     () => {
-    const promise = axios.get(SESSIONSEATS_URL + `${params.sessionID}/seats`);
-    promise.then( response => {
-      setSessionData(response.data);} )
+      const promise = axios.get(SESSIONSEATS_URL + `${params.sessionID}/seats`);
+      promise.then( response => {
+        setSessionData(response.data);
+      });
     }
   );
 
-  useEffect( () => {
-    getSessionData();
-    console.log(sessionData);
-  }, []);
+  useEffect(getSessionData, []);
+
+
+  function updateLocalSeats(event) {
+    //console.log(event);
+    console.log('antes :', localSeats);
+    const newLocalSeats = sessionData.seats.map((seat) => ({...seat, chosen: false}));
+    setLocalSeats(newLocalSeats);
+    console.log('depois :', localSeats);   
+    
+  }
 
   return(
     <>
-    {console.log(sessionData)}
+      {console.log('from api :', sessionData)}
+      {console.log('localSeats :', localSeats)}
       <SCSeatsList>
         {seats.map((seat, index) => (
           <Seat seat={seat} index={index} />
@@ -39,7 +51,7 @@ export default function Seats() {
       </SCSeatsList>
 
       <SCSeatsVisualKey>
-                <SCSeatCard>Selecionado</SCSeatCard>
+                <SCSeatCard onClick={updateLocalSeats}>Selecionado</SCSeatCard>
                 <SCSeatCard>Props aqui</SCSeatCard>
                 <SCSeatCard>Indisponível</SCSeatCard>
       </SCSeatsVisualKey>
