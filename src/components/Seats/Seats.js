@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 
-import "./Seats.css";
-
-
-
 import Seat from "./Seat.js";
+
+import { SCSeatsList, SCSeatCard, SCSeatsVisualKey, SCBuyerData} from './Seats_styles.js';
+import { SCFooter, SCFooterInfo } from '../MoviesList/MoviesList_styles.js';
 
 const sessionData = {
   "id": 290,
@@ -281,37 +280,37 @@ export default function Seats() {
 
   return(
     <>
-      <ul className="seats-list">
+      <SCSeatsList>
         {seats.map((seat, index) => (
           <Seat seat={seat} index={index} />
         ))}
-      </ul>
+      </SCSeatsList>
 
-      <div className="seats-visualkey">
-                <li className="seat-card selected">Selecionado</li>
-                <li className="seat-card available">Disponível</li>
-                <li className="seat-card unavailable">Indisponível</li>
-      </div>
+      <SCSeatsVisualKey>
+                <SCSeatCard>Selecionado</SCSeatCard>
+                <SCSeatCard>Props aqui</SCSeatCard>
+                <SCSeatCard>Indisponível</SCSeatCard>
+      </SCSeatsVisualKey>
 
-      <form className="buyer-data" id="buyer-data">
+      <SCBuyerData id="buyer-data">
         <label for="buyer-name">Nome do comprador:</label>
         <input type="text" id="buyer-name" name="buyer-name" placeholder="Digite seu nome..." />
 
         <label for="buyer-cpf">CPF do comprador:</label>
         <input type="text" id="buyer-cpf" name="buyer-cpf" placeholder="Digite seu CPF..." />
 
-        <Link to="/sucesso" className="reserve-seats">
+        <Link to="/sucesso">
           <p>Reservar assento(s)</p>
         </Link>
-      </form>
+      </SCBuyerData>
 
-      <footer>
-        <div className="footer-info">
+      <SCFooter>
+        <SCFooterInfo>
           <img className="poster"
           src={movie.posterURL} alt={movie.title} />
-          </div>
+          </SCFooterInfo>
           <p>{movie.title} <br></br> {day.weekday} - {name}</p>
-      </footer>
+      </SCFooter>
     
     </>
   );

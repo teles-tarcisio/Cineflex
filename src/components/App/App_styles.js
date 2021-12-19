@@ -31,6 +31,4 @@ const SCMainContainer = styled.div`
   align-items: center;
 `;
 
-
-
 export {SCHeader, SCMainContainer};

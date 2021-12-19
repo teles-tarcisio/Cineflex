@@ -8,7 +8,7 @@ import Sessions from '../Sessions/Sessions.js';
 import Seats from '../Seats/Seats.js';
 import Success from '../Success/Success.js';
 
-import { SCHeader, SCMainContainer } from './styles_App.js';
+import { SCHeader, SCMainContainer } from './App_styles.js';
 
 export default function App() {
 

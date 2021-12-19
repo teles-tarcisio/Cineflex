@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import "../MoviesList/MoviesList_styles.js";
-import "./Success.css";
+import "./Success_styles.js";
 
 
 export default function Success() {
@@ -37,9 +37,9 @@ export default function Success() {
         </div>
       </div>
 
-      <Link to="/" className="back-to-home">
+      <SCBackToHome to="/" >
         <p>Voltar pra Home</p>
-      </Link>
+      </SCBackToHome>
 
     </>
   );

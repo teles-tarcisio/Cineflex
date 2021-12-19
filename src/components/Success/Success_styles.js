@@ -1,4 +1,6 @@
-.order-summary {
+import styled from 'styled-components';
+
+const SCOrderSummary = styled.div`
   width: 100%;
   height: 327px;
   display: flex;
@@ -6,18 +8,18 @@
   align-items: flex-start;
   justify-content: space-around;
   color: #293845;
-}
-.order-summary h2 {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 28px;
-}
-.order-summary p {
-  font-size: 22px;
-  line-height: 26px;
-}
+    h2 {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+    };
+    p {
+      font-size: 22px;
+      line-height: 26px;
+    };
+`;
 
-.back-to-home {
+const SCBackToHome = styled.a`
   width: 225px;
   margin: auto;
   height: 42px;
@@ -30,4 +32,4 @@
   justify-content: center;
   text-decoration: none;
   color: #FFFFFF;
-}
+`;
