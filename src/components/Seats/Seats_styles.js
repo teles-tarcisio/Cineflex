@@ -17,17 +17,11 @@ const SCSeatCard = styled.li`
   justify-content: center;
   font-size: 12px;
   line-height: 15px;
-  background: #C3CFD9;
-  border: 1px solid #808F9D;
   border-radius: 17px;
-  &.selected {
-    background: #8DD7CF;
-    border: 1px solid #1AAE9E;
-  };
-  &.unavailable {
-  background: #FBE192;
-  border: 1px solid #F7C52B;
-  };
+  //background: #C3CFD9;
+  //border: 1px solid #808F9D;
+  background: ${(props) => props.bgColor};
+  border: ${(props) => props.border};
 `;
 
 const SCSeatsVisualKey = styled.div`

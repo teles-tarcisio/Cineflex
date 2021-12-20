@@ -10,6 +10,18 @@ import Success from '../Success/Success.js';
 
 import { SCHeader, SCMainContainer } from './App_styles.js';
 
+/*
+let reservation = {
+  movieTitle: "",
+  sessionDate: "",
+  sessionTime: "",
+  seats: [],
+  name: "",
+  cpf: ""
+};
+*/
+
+
 export default function App() {
 
   return (

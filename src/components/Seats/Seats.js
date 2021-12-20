@@ -11,15 +11,23 @@ import { SCFooter, SCFooterInfo } from '../MoviesList/MoviesList_styles.js';
 const SESSIONSEATS_URL = "https://mock-api.driven.com.br/api/v4/cineflex/showtimes/";
 
 
+let reservation = {
+  movieTitle: "",
+  sessionDate: "",
+  sessionTime: "",
+  seats: [],
+  name: "",
+  cpf: ""
+};
+
 export default function Seats() {
   const params = useParams();
 
   const [sessionData, setSessionData] = useState({movie:{}, day:{}, seats:[]});
   const [localSeats, setLocalSeats] = useState([]);    
-  
+
   function updateLocalSeats(newSessionData) {
-    const newLocalSeats = newSessionData.seats.map((seat) => ({...seat, chosen: false}));
-    console.log('new :', newLocalSeats);
+    const newLocalSeats = newSessionData.seats.map((seat) => ({...seat, selected: false}));
     setLocalSeats(newLocalSeats);
   }
 
@@ -35,13 +43,29 @@ export default function Seats() {
   
   useEffect(updateSessionData, []);
 
+  function addSeat(seatID) {
+    reservation.seats.push(seatID);
+  }
+
+  function removeFromArray(element, key) {
+    if (key === element) {
+        return false;
+    }
+    else {
+        return true;
+    }
+  };
+
+  function removeSeat(seatID) {
+    reservation.seats = reservation.seats.filter((element) => removeFromArray(element, seatID));
+  };
+
   
   return(
     <>
       <SCSeatsList>
-      {console.log('local: ', localSeats)}
         {localSeats.map((seat, index) => (
-          <Seat seat={seat} index={index} />
+          <Seat seat={seat} index={index} addSeat={addSeat} removeSeat={removeSeat}/>
         ))}
       </SCSeatsList>
 
