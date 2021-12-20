@@ -12,32 +12,34 @@ const SESSIONSEATS_URL = "https://mock-api.driven.com.br/api/v4/cineflex/showtim
 
 
 export default function Seats() {
-  const [sessionData, setSessionData] = useState({movie:{}, day:{}, seats:[]});
-  const { movie, name, day, seats } = sessionData;
-
-  const [localSeats, setLocalSeats] = useState(seats);
-    
   const params = useParams();
 
-  function updateLocalSeats() {
-    const newLocalSeats = seats.map((seat) => ({...seat, chosen: false}));
-  setLocalSeats(newLocalSeats);
+  const [sessionData, setSessionData] = useState({movie:{}, day:{}, seats:[]});
+  const [localSeats, setLocalSeats] = useState([]);    
+  
+  function updateLocalSeats(newSessionData) {
+    const newLocalSeats = newSessionData.seats.map((seat) => ({...seat, chosen: false}));
+    console.log('new :', newLocalSeats);
+    setLocalSeats(newLocalSeats);
   }
 
-  function updateSessionData() {
+  const updateSessionData = (
+    () => {
     const promise = axios.get(SESSIONSEATS_URL + `${params.sessionID}/seats`);
     promise.then( response => {
       setSessionData(response.data);
-      updateLocalSeats();});
+      updateLocalSeats(response.data);
+    });
     promise.catch((error) => console.log(error));
-  };
+  });
   
-  useEffect(() => (updateSessionData), []);
+  useEffect(updateSessionData, []);
+
   
   return(
     <>
-    {console.log(localSeats)}
       <SCSeatsList>
+      {console.log('local: ', localSeats)}
         {localSeats.map((seat, index) => (
           <Seat seat={seat} index={index} />
         ))}
@@ -64,9 +66,9 @@ export default function Seats() {
       <SCFooter>
         <SCFooterInfo>
           <img className="poster"
-          src={movie.posterURL} alt={movie.title} />
+          src={sessionData.movie.posterURL} alt={sessionData.movie.title} />
           </SCFooterInfo>
-          <p>{movie.title} <br></br> {day.weekday} - {name}</p>
+          <p>{sessionData.movie.title} <br></br> {sessionData.day.weekday} - {sessionData.name}</p>
       </SCFooter>
     
     </>
