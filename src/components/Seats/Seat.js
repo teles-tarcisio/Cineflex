@@ -1,13 +1,13 @@
 import { SCSeatCard } from './Seats_styles.js';
 
 
-export default function Seat(props) {
-  const { seat, index } = props;
+export default function Seat({seat, index, localSeats, setLocalSeats}) {
+  
 
-  function selectSeat(e) {
+  function selectSeat() {
     if (seat.isAvailable === false) {
       alert("Este assento não está disponível");
-      return;
+      return; 
     }
     else {
       if (seat.selected === false) {
@@ -19,6 +19,7 @@ export default function Seat(props) {
         console.log(seat);
       }
     }
+    setLocalSeats([...localSeats]);
   }
   
   return(  

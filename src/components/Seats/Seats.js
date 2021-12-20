@@ -41,7 +41,7 @@ export default function Seats() {
       <SCSeatsList>
       {console.log('local: ', localSeats)}
         {localSeats.map((seat, index) => (
-          <Seat seat={seat} index={index} />
+          <Seat seat={seat} index={index} localSeats={localSeats} setLocalSeats={setLocalSeats}/>
         ))}
       </SCSeatsList>
 
