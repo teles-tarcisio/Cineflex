@@ -23,7 +23,6 @@ export default function App() {
 
   return (
     <BrowserRouter>
-    {console.log('reservation: ', reservation)}
       <SCHeader>
         <h1>CINEFLEX</h1>
       </SCHeader>

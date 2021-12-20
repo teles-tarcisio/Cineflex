@@ -49,7 +49,7 @@ export default function Seats({setReservation}) {
     });
 
   useEffect(getSessionData, []);
-  console.log('ordercopy: ', orderCopy);
+  
   return (
     <>
       <SCSeatsList>
