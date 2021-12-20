@@ -1,10 +1,24 @@
+import axios from 'axios';
 import { Link } from "react-router-dom";
+import { useEffect } from 'react/cjs/react.development';
 
 import "../MoviesList/MoviesList_styles.js";
 import { SCOrderSummary, SCBackToHome } from "./Success_styles.js";
 
+const RESERVESEATS_URL = "https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many"
 
 export default function Success({reservation}) {
+  
+  useEffect(() => {
+    const finalOrder = {
+      ids: reservation.seats,
+      name: reservation.name,
+      cpf: reservation.cpf
+    }
+    const promise = axios.post(RESERVESEATS_URL, finalOrder);
+    promise.then(console.log);
+    promise.catch(console.log);
+  }, []);
   
   return (
     <>

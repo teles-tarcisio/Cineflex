@@ -32,7 +32,7 @@ export default function Seats({setReservation}) {
     
     const newOrderCopy = {
       ...orderCopy, movieTitle: newSessionData.movie.title,
-      sessionDate: newSessionData.day.weekday,
+      sessionDate: newSessionData.day.date,
       sessionTime: newSessionData.name
     };
     setOrderCopy(newOrderCopy);
