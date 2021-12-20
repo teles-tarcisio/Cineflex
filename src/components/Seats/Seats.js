@@ -18,7 +18,7 @@ export default function Seats() {
   const [localSeats, setLocalSeats] = useState([]);    
   
   function updateLocalSeats(newSessionData) {
-    const newLocalSeats = newSessionData.seats.map((seat) => ({...seat, chosen: false}));
+    const newLocalSeats = newSessionData.seats.map((seat) => ({...seat, selected: false}));
     console.log('new :', newLocalSeats);
     setLocalSeats(newLocalSeats);
   }
@@ -46,9 +46,9 @@ export default function Seats() {
       </SCSeatsList>
 
       <SCSeatsVisualKey>
-                <SCSeatCard seatState={'selected'}>Selecionado</SCSeatCard>
-                <SCSeatCard seatState={'available'}>Disponível</SCSeatCard>
-                <SCSeatCard seatState={'unavailable'}>Indisponível</SCSeatCard>
+                <SCSeatCard isSelected={true}>Selecionado</SCSeatCard>
+                <SCSeatCard isSelected={false}>Disponível</SCSeatCard>
+                <SCSeatCard isAvailable={false}>Indisponível</SCSeatCard>
       </SCSeatsVisualKey>
 
       <SCBuyerData id="buyer-data">
