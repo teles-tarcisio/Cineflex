@@ -1,9 +1,26 @@
 import { SCSeatCard } from './Seats_styles.js';
 
 
-export default function Seat({seat, index, localSeats, setLocalSeats}) {
+export default function Seat({seat, index, orderCopy, setOrderCopy}) {
   
+  function addSeat(seatID) {
+    orderCopy.seats.push(seatID);
+    setOrderCopy({...orderCopy});
+  }
+  function removeFromArray(element, key) {
+    if (key === element) {
+        return false;
+    }
+    else {
+        return true;
+    }
+  };
 
+  function removeSeat(seatID) {
+    const newSeats = orderCopy.seats.filter((element) => removeFromArray(element, seatID));
+    setOrderCopy({...orderCopy, seats: newSeats});
+  };
+  
   function selectSeat() {
     if (seat.isAvailable === false) {
       alert("Este assento não está disponível");
@@ -12,14 +29,13 @@ export default function Seat({seat, index, localSeats, setLocalSeats}) {
     else {
       if (seat.selected === false) {
         seat.selected = true;
-        console.log(seat);
+        addSeat(seat.id);
       }
       else if (seat.selected ===  true) {
         seat.selected = false;
-        console.log(seat);
+        removeSeat(seat.id);
       }
     }
-    setLocalSeats([...localSeats]);
   }
   
   return(  

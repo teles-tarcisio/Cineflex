@@ -9,11 +9,13 @@ const SCOrderSummary = styled.div`
   justify-content: space-around;
   color: #293845;
     h2 {
+      margin: auto 30px;
       font-weight: 700;
       font-size: 24px;
       line-height: 28px;
     };
     p {
+      margin: auto 30px;
       font-size: 22px;
       line-height: 26px;
     };

@@ -23,7 +23,7 @@ const SCSeatCard = styled.li`
       props.isSelected === false ? '#C3CFD9' : '#8DD7CF')};
   border: ${(props) => (
     props.isAvailable === false ? '1px solid #F7C52B' : 
-      props.isSelected === false ? '3px solid #808F9D' : '6px solid #1AAE9E')};
+      props.isSelected === false ? '1px solid #808F9D' : '1px solid #1AAE9E')};
 `;
 
 

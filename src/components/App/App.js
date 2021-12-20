@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import '../../assets/index.css';
@@ -11,9 +12,18 @@ import Success from '../Success/Success.js';
 import { SCHeader, SCMainContainer } from './App_styles.js';
 
 export default function App() {
+  const [reservation, setReservation] = useState({
+      movieTitle: "",
+      sessionDate: "",
+      sessionTime: "",
+      seats: [],
+      name: "",
+      cpf: ""}
+  );
 
   return (
     <BrowserRouter>
+    {console.log('reservation: ', reservation)}
       <SCHeader>
         <h1>CINEFLEX</h1>
       </SCHeader>
@@ -28,7 +38,7 @@ export default function App() {
           
           <Route path="/sessoes/:movieID" element={
             <InfoBox type={'session'}>
-              <Sessions />
+              <Sessions setReservation={setReservation} />
             </InfoBox>}           
           />
   
@@ -40,7 +50,7 @@ export default function App() {
   
           <Route path="/sucesso" element={
             <InfoBox type={'reservation'}>
-              <Success />
+              <Success reservation={reservation}/>
             </InfoBox>}
           />
 

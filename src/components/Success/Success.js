@@ -4,19 +4,11 @@ import "../MoviesList/MoviesList_styles.js";
 import { SCOrderSummary, SCBackToHome } from "./Success_styles.js";
 
 
-export default function Success() {
-  const reservation = {
-    movieTitle: "Project Power",
-    sessionDate: "24/02/2022",
-    sessionTime: "19:00",
-    seats: [14474, 14473, 14475, 14476],
-    name: "João da Silva Sauro",
-    cpf: "22464246409"
-  };
-
+export default function Success({reservation}) {
+  
   return (
     <>
-      <div className="order-summary">
+      <SCOrderSummary>
         <div className="movie-session">
           <h2>Filme e sessão</h2>
           <p>{reservation.movieTitle}</p>
@@ -35,7 +27,7 @@ export default function Success() {
         <p>Nome: {reservation.name}</p>
         <p>CPF: {reservation.cpf}</p>
         </div>
-      </div>
+      </SCOrderSummary>
 
       <SCBackToHome to="/" >
         <p>Voltar pra Home</p>
