@@ -17,7 +17,7 @@ const SCSeatCard = styled.li`
   justify-content: center;
   font-size: 12px;
   line-height: 15px;
-  background: #C3CFD9;
+  /*background: #C3CFD9;
   border: 1px solid #808F9D;
   border-radius: 17px;
   &.selected {
@@ -27,7 +27,11 @@ const SCSeatCard = styled.li`
   &.unavailable {
   background: #FBE192;
   border: 1px solid #F7C52B;
-  };
+  };*/
+  background: ${(props) => (
+    props.seatState === 'unavailable' ? '#FBE192' : 
+      props.seatState === 'available' ? '#C3CFD9' : 
+        props.seatState === 'selected' ? '#8DD7CF' : '' )};
 `;
 
 const SCSeatsVisualKey = styled.div`

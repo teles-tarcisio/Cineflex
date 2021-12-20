@@ -46,9 +46,9 @@ export default function Seats() {
       </SCSeatsList>
 
       <SCSeatsVisualKey>
-                <SCSeatCard>Selecionado</SCSeatCard>
-                <SCSeatCard>Props aqui</SCSeatCard>
-                <SCSeatCard>Indisponível</SCSeatCard>
+                <SCSeatCard seatState={'selected'}>Selecionado</SCSeatCard>
+                <SCSeatCard seatState={'available'}>Disponível</SCSeatCard>
+                <SCSeatCard seatState={'unavailable'}>Indisponível</SCSeatCard>
       </SCSeatsVisualKey>
 
       <SCBuyerData id="buyer-data">

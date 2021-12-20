@@ -10,10 +10,10 @@ function selectSeat(event) {
 
 
 export default function Seat(props) {
-  const { seat, index } = props;
+  const { seat, index, seatState } = props;
   
   return(
-    <SCSeatCard /*onClick={selectSeat}*/ key={seat.id} id={index} >
+    <SCSeatCard /*onClick={selectSeat}*/ key={seat.id} id={index} seatState={seatState}>
       {seat.name}
     </SCSeatCard>
   );
