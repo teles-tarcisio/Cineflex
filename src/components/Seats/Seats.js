@@ -12,7 +12,7 @@ import { SCFooter, SCFooterInfo } from '../MoviesList/MoviesList_styles.js';
 const SESSIONSEATS_URL = "https://mock-api.driven.com.br/api/v4/cineflex/showtimes/";
 
 
-export default function Seats({setReservation }) {
+export default function Seats({setReservation}) {
   const params = useParams();
 
   const [sessionData, setSessionData] = useState({ movie: {}, day: {}, seats: [] });
@@ -64,7 +64,7 @@ export default function Seats({setReservation }) {
         <SCSeatCard isAvailable={false}>Indisponível</SCSeatCard>
       </SCSeatsVisualKey>
 
-      <BuyerData orderCopy={orderCopy} setOrderCopy={setOrderCopy} setReservation={setReservation}/>
+      <BuyerData orderCopy={orderCopy} setOrderCopy={setOrderCopy} updateReservation={setReservation}/>
 
       <SCFooter>
         <SCFooterInfo>

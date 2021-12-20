@@ -44,7 +44,7 @@ export default function App() {
   
           <Route path="/assentos/:sessionID" element={
             <InfoBox type={'seats'}>
-              <Seats />
+              <Seats setReservation={setReservation}/>
             </InfoBox>}
           />
   

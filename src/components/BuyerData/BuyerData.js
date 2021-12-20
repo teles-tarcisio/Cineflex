@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { SCBuyerData } from '../Seats/Seats_styles.js';
 
-export default function BuyerData({orderCopy, setOrderCopy, setReservation}) {
+export default function BuyerData({orderCopy, setOrderCopy, updateReservation}) {
   const [buyerName, setBuyerName] = useState("");
   const [buyerCPF, setBuyerCPF] = useState("");
   
@@ -18,7 +18,7 @@ export default function BuyerData({orderCopy, setOrderCopy, setReservation}) {
   function updateBuyerData() {
     let newOrderData = {...orderCopy, name: buyerName, cpf: buyerCPF};
     setOrderCopy(newOrderData);
-    setReservation(orderCopy);
+    updateReservation(newOrderData);
   };
   
   

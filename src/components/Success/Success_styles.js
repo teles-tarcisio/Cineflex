@@ -21,9 +21,9 @@ const SCOrderSummary = styled.div`
     };
 `;
 
-const SCBackToHome = styled.a`
+const SCBackToHome = styled.div`
   width: 225px;
-  margin: auto;
+  margin: 100px auto;
   height: 42px;
   background: #E8833A;
   border-radius: 3px;
@@ -32,8 +32,10 @@ const SCBackToHome = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  color: #FFFFFF;
+  & a {
+    text-decoration: none;
+    color: #FFFFFF;
+  }
 `;
 
 export { SCOrderSummary, SCBackToHome };

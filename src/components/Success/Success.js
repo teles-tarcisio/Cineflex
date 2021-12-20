@@ -29,8 +29,10 @@ export default function Success({reservation}) {
         </div>
       </SCOrderSummary>
 
-      <SCBackToHome to="/" >
+      <SCBackToHome>
+        <Link to="/" >
         <p>Voltar pra Home</p>
+        </Link>
       </SCBackToHome>
 
     </>
