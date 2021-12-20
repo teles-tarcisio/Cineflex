@@ -13,45 +13,38 @@ const SESSIONSEATS_URL = "https://mock-api.driven.com.br/api/v4/cineflex/showtim
 
 export default function Seats() {
   const [sessionData, setSessionData] = useState({movie:{}, day:{}, seats:[]});
-  const [localSeats, setLocalSeats] = useState([]);
-  
   const { movie, name, day, seats } = sessionData;
-  
+
+  const [localSeats, setLocalSeats] = useState(seats);
+    
   const params = useParams();
 
-  const getSessionData = (
-    () => {
-      const promise = axios.get(SESSIONSEATS_URL + `${params.sessionID}/seats`);
-      promise.then( response => {
-        setSessionData(response.data);
-      });
-    }
-  );
-
-  useEffect(getSessionData, []);
-
-
-  function updateLocalSeats(event) {
-    //console.log(event);
-    console.log('antes :', localSeats);
-    const newLocalSeats = sessionData.seats.map((seat) => ({...seat, chosen: false}));
-    setLocalSeats(newLocalSeats);
-    console.log('depois :', localSeats);   
-    
+  function updateLocalSeats() {
+    const newLocalSeats = seats.map((seat) => ({...seat, chosen: false}));
+  setLocalSeats(newLocalSeats);
   }
 
+  function updateSessionData() {
+    const promise = axios.get(SESSIONSEATS_URL + `${params.sessionID}/seats`);
+    promise.then( response => {
+      setSessionData(response.data);
+      updateLocalSeats();});
+    promise.catch((error) => console.log(error));
+  };
+  
+  useEffect(() => (updateSessionData), []);
+  
   return(
     <>
-      {console.log('from api :', sessionData)}
-      {console.log('localSeats :', localSeats)}
+    {console.log(localSeats)}
       <SCSeatsList>
-        {seats.map((seat, index) => (
+        {localSeats.map((seat, index) => (
           <Seat seat={seat} index={index} />
         ))}
       </SCSeatsList>
 
       <SCSeatsVisualKey>
-                <SCSeatCard onClick={updateLocalSeats}>Selecionado</SCSeatCard>
+                <SCSeatCard>Selecionado</SCSeatCard>
                 <SCSeatCard>Props aqui</SCSeatCard>
                 <SCSeatCard>Indisponível</SCSeatCard>
       </SCSeatsVisualKey>
