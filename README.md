@@ -7,8 +7,18 @@
 ## Technologies
   (...)
   
- ## How To Run
-  (..)
-  
- [here goes working recorded screens]
-
+## How To Run
+1. Clone this repository
+2. Install dependencies
+```bash
+npm i
+```
+3. Run the web application
+```bash
+npm start
+```
+4. You can optionally build the project running
+```bash
+npm run build
+```
+5. Finally access http://localhost:3000 on your favorite browser.
